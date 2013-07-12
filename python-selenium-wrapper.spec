@@ -1,5 +1,5 @@
 Name:		python-selenium-wrapper
-Version:	0.1
+Version:	0.2
 Release:	1%{?dist}
 Summary:	Selenium driver wrapper and nosetests screenhots plugin
 
@@ -34,6 +34,7 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/python-selenium-wrapper/nose/*.py*
 
 %changelog
-* Fri July 12 2013 dparalen 0.1-1
+* Fri Jul 12 2013 dparalen <vetrisko@gmail.com> 0.2-1
 - new package built with tito
+
 
