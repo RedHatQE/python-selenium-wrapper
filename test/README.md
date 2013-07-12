@@ -1,16 +1,21 @@
 ### Running nosetests with the screenshots plugin
 * `nosetests --with-webuiscreenshots`
 * by default, a `Screenshots` directory is created
-* screenshots are organized as follows
-  * `Screenshots`
-    * `<run date #1>`
-      * `<test case name #1>`
-        * `<screenshot date #1>.png`
-        * `<screenshot date #2>.png`
-        * `<screenshot date #k>.png`
-      * `<test case name #2>`
-      * `<test case name #l>`
-    * `<run date #2>`
-    * `<run date #m>`
-* passing screenshots are removed unless `--keep-passing-screenshots` swithc is specified
+* passing screenshots are removed unless `--keep-passing-screenshots` switch is specified
+
+#### screenshots are organized as follows
+```
+Screenshots/
+  run_date_#1/
+    [FAILED_|ERROR_]test_case_id_#1/
+      screenshot_date_#1.png
+      screenshot_date_#2.png
+      screenshot_date_#k.png
+    test_case_id_#2/
+    test_case_id_#l/
+  run_date_#2/
+  run_date_#m/
+```
+
+
       
