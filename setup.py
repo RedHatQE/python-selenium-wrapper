@@ -5,6 +5,7 @@ setup(name='selenium_wrapper',
     description='Selenium driver wrapper and screenshots nosetests plugin',
     author='dparalen',
     license='GPLv3+',
+    install_requires=['nose', 'selenium'],
     entry_points = {
         'nose.plugins.0.10': [
             'webui_screenshots = selenium_wrapper.nose.webui_screenshots:WebuiScreenshots'
