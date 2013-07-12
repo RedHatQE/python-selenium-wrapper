@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 setup(name='selenium_wrapper',
     version=0.1,
-    description='Selenium driver wrapper and screenshots nosetests plugin'
+    description='Selenium driver wrapper and screenshots nosetests plugin',
     author='dparalen',
     license='GPLv3+',
     entry_points = {
         'nose.plugins.0.10': [
-            'webui_screenshots = selenium_wrapper.nose:WebuiScreenshots'
+            'webui_screenshots = selenium_wrapper.nose.webui_screenshots:WebuiScreenshots'
             ]
         },
     classifiers=[

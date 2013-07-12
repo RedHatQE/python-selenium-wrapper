@@ -1,8 +1,7 @@
 import logging, os, datetime
-
-from nose.plugins import Plugin
 from selenium_wrapper import SE
-from selenium_wrapper import ScreenShots
+from selenium_wrapper.screenshots import ScreenShots
+from nose.plugins import Plugin
 
 log = logging.getLogger(__name__)
 

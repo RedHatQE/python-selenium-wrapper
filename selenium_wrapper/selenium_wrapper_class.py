@@ -113,3 +113,5 @@ class SeleniumWrapper(object):
 
         if url is not None:
             self._driver.get(url)
+
+__all__ = [SeleniumWrapper]

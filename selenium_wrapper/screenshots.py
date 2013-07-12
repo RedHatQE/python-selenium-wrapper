@@ -1,5 +1,7 @@
 import logging, os, datetime
-from selenium_wrapper import SE
+from selenium_wrapper_class import SeleniumWrapper
+
+SE = SeleniumWrapper()
 
 class ScreenShots(object):
     '''iterating over a driver with a side effect of taking screen shots'''
@@ -28,4 +30,5 @@ class ScreenShots(object):
     def __iter__(self):
         '''return the iterator over screenshots history'''
         return iter(self._path_history)
- 
+
+__all__ = [ScreenShots] 
