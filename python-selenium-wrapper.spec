@@ -30,8 +30,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 %doc LICENSE README.md
 %{python_sitelib}/*.egg-info
-%{python_sitelib}/python-selenium-wrapper/*.py*
-%{python_sitelib}/python-selenium-wrapper/nose/*.py*
+%{python_sitelib}/selenium_wrapper/*.py*
+%{python_sitelib}/selenium_wrapper/nose/*.py*
 
 %changelog
 * Fri Jul 12 2013 dparalen <vetrisko@gmail.com> 0.2-1
