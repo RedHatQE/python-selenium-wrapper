@@ -21,7 +21,7 @@ Requires:	python-nose
 %build
 
 %install
-%{__python} setup.py install -O1 --root $RPM_BUILD_ROOT
+%{__python} setup.py install --single-version-externally-managed -O1 --root $RPM_BUILD_ROOT --record=INSTALLED_FILES
 
 %clean
 rm -rf $RPM_BUILD_ROOT
