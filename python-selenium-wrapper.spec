@@ -10,7 +10,7 @@ Source0:	%{name}-%{version}.tar.gz
 BuildArch:  	noarch
 
 BuildRequires:	python-devel
-Requires:	python-nose
+Requires:	python-nose, python-selenium
 
 %description
 %{summary}
