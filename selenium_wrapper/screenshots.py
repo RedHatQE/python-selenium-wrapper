@@ -1,5 +1,6 @@
 import logging, os, datetime
 from selenium_wrapper_class import SeleniumWrapper
+from selenium.common import WebDriverException
 
 SE = SeleniumWrapper()
 
@@ -19,11 +20,14 @@ class ScreenShots(object):
         '''accessing next item takes a screenshot'''
         path = self._next_path
         self.log.debug("taking screenshot: %s" % path)
-        if not SE.driver.get_screenshot_as_file(path):
-            # try mkdir
-            os.makedirs(self.directory)
-            assert SE.driver.get_screenshot_as_file(path), "Taking screenshot"
-        self._path_history.append(path)
+        try:
+            if not SE.driver.get_screenshot_as_file(path):
+                # try mkdir
+                os.makedirs(self.directory)
+                assert SE.driver.get_screenshot_as_file(path), "Taking screenshot"
+            self._path_history.append(path)
+        except WebDriverException as e:
+            self.log.warning("unable to take screenshot %s: %s" % (path, e.message))
         return self._path_history[-1]
 
     next = __next__
