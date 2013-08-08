@@ -1,6 +1,6 @@
 import logging, os, datetime
 from selenium_wrapper_class import SeleniumWrapper
-from selenium.common import WebDriverException
+from selenium.common.exceptions import WebDriverException
 
 SE = SeleniumWrapper()
 
