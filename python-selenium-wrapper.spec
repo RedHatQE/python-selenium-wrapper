@@ -1,5 +1,5 @@
 Name:		python-selenium-wrapper
-Version:	0.5
+Version:	0.6
 Release:	1%{?dist}
 Summary:	Selenium driver wrapper and nosetests screenhots plugin
 
@@ -34,6 +34,11 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/selenium_wrapper/nose/*.py*
 
 %changelog
+* Fri Aug 16 2013 dparalen <vetrisko@gmail.com> 0.6-1
+- fix: quit instead of close cleans temporary firefox profile
+  (vetrisko@gmail.com)
+- implementing a retry logic creating snapshots (vetrisko@gmail.com)
+
 * Thu Aug 15 2013 dparalen <vetrisko@gmail.com> 0.5-1
 - introducing helper context managers for navigating: current_url, restore_url
   (vetrisko@gmail.com)
