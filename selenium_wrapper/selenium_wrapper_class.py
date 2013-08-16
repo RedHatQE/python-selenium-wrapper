@@ -56,7 +56,7 @@ class SeleniumWrapper(object):
     def __del__(self):
         # close & del the _driver
         try:
-            self._driver.close()
+            self._driver.quit()
         except Exception:
             pass
         del(self._driver)
@@ -79,7 +79,7 @@ class SeleniumWrapper(object):
         # - if url is not None, "get" it
         if self._driver is not None:
             try:
-                self._driver.close()
+                self._driver.quit()
             except Exception as e:
                 logging.log(logging.WARNING, "got: %s closing driver" % e)
                 
