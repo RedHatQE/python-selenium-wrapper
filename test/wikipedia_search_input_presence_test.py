@@ -1,14 +1,17 @@
 from selenium_wrapper import SE
 
 
-import sys, unittest, re, time, os.path, logging, nose
+import unittest
 
 class OpenPageTestCase(unittest.TestCase):
     search_input_locator = staticmethod(lambda : SE.find_element_by_name("search"))
-    def setUp(self):
-        self.log = logging.getLogger("wikipedia.search.input.presence.test")
-        self.verificationErrors = []
+
+    @classmethod
+    def setUpClass(cls):
         SE.reset(url="http://en.wikipedia.org")
+        
+    def setUp(self):
+        self.verificationErrors = []
     
     def testSearchInputPresence(self):
         self.assertIn(self.search_input_locator, SE)
