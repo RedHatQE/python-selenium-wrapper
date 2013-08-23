@@ -63,4 +63,8 @@ class WebuiScreenshots(Plugin):
 
     def formatFailure(self, test, err):
         '''rename the testcase directory to denote the failure'''
-        os.renames(self.screenshots_directory(test), self.screenshots_directory(test, failed=True))
+        try:
+            os.renames(self.screenshots_directory(test), self.screenshots_directory(test, failed=True))
+        except OSError as e:
+            # happens e.g. when a test case failed without taking any screenshots
+            log.warning("got '%s' formating failure: '%s'" % (e, err))
