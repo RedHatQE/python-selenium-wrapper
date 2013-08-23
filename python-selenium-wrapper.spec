@@ -1,5 +1,5 @@
 Name:		python-selenium-wrapper
-Version:	0.6
+Version:	0.7
 Release:	1%{?dist}
 Summary:	Selenium driver wrapper and nosetests screenhots plugin
 
@@ -34,6 +34,10 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/selenium_wrapper/nose/*.py*
 
 %changelog
+* Fri Aug 23 2013 dparalen <vetrisko@gmail.com> 0.7-1
+- clean up: tests (vetrisko@gmail.com)
+- fix: catch possible os errors in formating failures (vetrisko@gmail.com)
+
 * Fri Aug 16 2013 dparalen <vetrisko@gmail.com> 0.6-1
 - fix: quit instead of close cleans temporary firefox profile
   (vetrisko@gmail.com)
