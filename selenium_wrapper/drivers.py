@@ -1,4 +1,5 @@
 from selenium.webdriver import PhantomJS, Firefox
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 def get_phantom_driver():
     # we'd like to
