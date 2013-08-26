@@ -1,7 +1,5 @@
-from selenium.webdriver import Firefox
-from selenium.webdriver import FirefoxProfile
 from selenium.common.exceptions import NoSuchElementException
-import logging, os
+import logging, os, drivers
 from datetime import datetime
 
 log = logging.getLogger(__name__)
@@ -76,6 +74,7 @@ class SeleniumWrapper(object):
     def reset(self, driver=None, url=None):
         # reset the driver
         # - if driver is None, setup a default one
+        # - if driver is a string, it might be a driver name
         # - if url is not None, "get" it
         if self._driver is not None:
             try:
@@ -84,31 +83,13 @@ class SeleniumWrapper(object):
                 logging.log(logging.WARNING, "got: %s closing driver" % e)
                 
         if driver is None:
-            # we'd like to
-            # - accept untrusterd certs
-            # - automatically save downloads to cwd/Downloads
-            profile = FirefoxProfile()
-            profile.accept_untrusted_cert = True
-            profile.set_preference("browser.download.folderList", 2)
-            profile.set_preference("browser.download.dir", os.getcwd() + "/Downloads")
-            profile.set_preference("browser.download.manager.showWhenStarting", False)
-            profile.set_preference("browser.download.panel.shown", False)
-            profile.set_preference("browser.download.show_plugins_in_list", False)
-            profile.set_preference("browser.download.closeWhenDone", True)
-            profile.set_preference("browser.download.useWindow", False)
-            profile.set_preference("browser.download.manager.alertOnEXEOpen", False)
-            profile.set_preference(
-                "browser.helperApps.neverAsk.saveToDisk",
-                ",".join([
-                    "application/octet-stream",
-                    "application/zip",
-                    "application/gzip",
-                    "application/bzip2",
-                    "application/x-tar"
-                ])
-            )
-            self._driver = Firefox(profile)
+            # let's use default
+            self._driver = drivers.default_driver()
+        elif isinstance(driver, str):
+            # might be a driver name
+            self._driver = drivers.get_driver_by_name(driver)
         else:
+            # custom usage
             self._driver = driver
 
         if url is not None:

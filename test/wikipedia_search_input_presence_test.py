@@ -8,7 +8,7 @@ class OpenPageTestCase(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        SE.reset(url="http://en.wikipedia.org")
+        SE.reset(driver='firefox', url="http://en.wikipedia.org")
         
     def setUp(self):
         self.verificationErrors = []
