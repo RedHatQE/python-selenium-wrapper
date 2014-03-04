@@ -1,5 +1,5 @@
 Name:		python-selenium-wrapper
-Version:	0.8
+Version:	0.9
 Release:	1%{?dist}
 Summary:	Selenium driver wrapper and nosetests screenhots plugin
 
@@ -34,6 +34,9 @@ rm -rf $RPM_BUILD_ROOT
 %{python_sitelib}/selenium_wrapper/nose/*.py*
 
 %changelog
+* Tue Mar 04 2014 dparalen <vetrisko@gmail.com> 0.9-1
+- fix: missing provides (vetrisko@gmail.com)
+
 * Mon Aug 26 2013 dparalen <vetrisko@gmail.com> 0.8-1
 - introducing test cases for current_url context manager (vetrisko@gmail.com)
 - fix: try---finally (vetrisko@gmail.com)
