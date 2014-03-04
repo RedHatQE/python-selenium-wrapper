@@ -5,6 +5,7 @@ setup(name='selenium_wrapper',
     description='Selenium driver wrapper and screenshots nosetests plugin',
     author='dparalen',
     license='GPLv3+',
+    provides=['selenium_wrapper'],
     install_requires=['nose', 'selenium'],
     entry_points = {
         'nose.plugins.0.10': [
